@@ -74,6 +74,21 @@ function renderResults() {
   }
 }
 
+
+// ---------
+// function addProductChart () {
+//   const = [];
+//   Const = [];
+//   const = [];
+
+//   for (let product of Products.allProducts) {
+//     productNamesArray.push(product.name);
+//     productNamesArray.push(product.votes);
+//     productNamesArray.push(prodcut.timesDisplayed);
+//   }
+// }
+// ------------
+
 function productClicked(event) {
   let id = event.target.id;
   voteCounter++;
@@ -90,7 +105,7 @@ function productClicked(event) {
     // else {
   //   alert('Please pick a product');
   // }
-  if (voteCounter === 5){
+  if (voteCounter === 25){
     renderResults();
     // productSelectorElem.removeEventListener('click', productClicked);
     leftImgElem.removeEventListener('click', productClicked);
