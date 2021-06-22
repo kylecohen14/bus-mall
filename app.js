@@ -1,7 +1,7 @@
 'use strict';
 
 
-
+// branch
 // const productSelectorElem = document.getElementById('all_products');
 // const leftImgElem = document.getElementById('left_product');
 // const middleImgElem = document.getElementById('middle_product');
