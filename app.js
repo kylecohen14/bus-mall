@@ -2,7 +2,7 @@
 
 
 // branch
-// const productSelectorElem = document.getElementById('all_products');
+const productSelectorElem = document.getElementById('all_products');
 // const leftImgElem = document.getElementById('left_product');
 // const middleImgElem = document.getElementById('middle_product');
 // const rightImgElem = document.getElementById('right_product');
@@ -37,27 +37,21 @@ Products.prototype.renderSingleProduct = function(imgPostion, h2Postion) {
 
 //------------------ prototype methods above-----------------
 function pickThreeProducts() {
-  let leftProductIndex = Math.floor(Math.random() * Products.allProducts.length);
-  leftProduct = Products.allProducts[leftProductIndex];
-  let middleProductIndex = Math.floor(Math.random() * Products.allProducts.length);
-  middleProduct = Products.allProducts[middleProductIndex];
 
-  while(middleProduct === leftProduct || middleProduct === null) {
-    middleProductIndex = Math.floor(Math.random() * Products.allProducts.length);
+  let usedProducts = [leftProduct, middleProduct, rightProduct];
+  while (usedProducts.includes(leftProduct)) {
+    let leftProductIndex = Math.floor(Math.random() * Products.allProducts.length);
+    leftProduct = Products.allProducts[leftProductIndex];
+  }
+  
+  while(middleProduct === rightProduct || middleProduct === leftProduct || usedProducts.includes(middleProduct)) {
+    let middleProductIndex = Math.floor(Math.random() * Products.allProducts.length);
     middleProduct = Products.allProducts[middleProductIndex];
   }
 
-  let rightProductIndex = Math.floor(Math.random() * Products.allProducts.length);
-  rightProduct = Products.allProducts[rightProductIndex];
-
-  while(rightProduct === leftProduct || middleProduct === rightProduct || rightProduct === null) {
-    rightProductIndex = Math.floor(Math.random() * Products.allProducts.length);
+  while(rightProduct === leftProduct || rightProduct === middleProduct || usedProducts.includes(rightProduct)) {
+    let rightProductIndex = Math.floor(Math.random() * Products.allProducts.length);
     rightProduct = Products.allProducts[rightProductIndex];
-    // ----
-    // leftProductIndex = Math.floor(Math.random() * Products.allProducts.length);
-    // leftProduct = Products.allProducts[leftProductIndex];
-    // middleProductIndex = Math.floor(Math.random() * Products.allProducts.length);
-    // middleProduct = Products.allProducts[middleProductIndex];
   }
   leftProduct.renderSingleProduct(leftImgElem, leftH2Elem);
   middleProduct.renderSingleProduct(middleImgElem, middleH2Elem);
@@ -89,6 +83,129 @@ function renderResults() {
 // }
 // ------------
 
+function addProductChart() {
+  const productNamesArray = [];
+  const productVotesArray = [];
+  const productShownArray = [];
+  for (let product of Products.allProducts) {
+    productNamesArray.push(product.name);
+    productVotesArray.push(product.votes);
+    productShownArray.push(product.timesDisplayed);
+  }
+  const chartVar = document.getElementById('productChart').getContext('2d');
+  const productChart = new Chart(chartVar, {
+
+    type: 'bar',
+    data: {
+      labels: productNamesArray,
+      datasets: [{
+        label: 'How many times Products were selected',
+        data: productVotesArray,
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+        ],
+        borderWidth: 1 
+      }, {
+        label: 'How many times Products were shown',
+        data: productShownArray,
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true 
+        }
+      }
+    }
+  });
+}
+
 function productClicked(event) {
   let id = event.target.id;
   voteCounter++;
@@ -101,24 +218,14 @@ function productClicked(event) {
       middleProduct.votes++;
     }
     pickThreeProducts();
-   }
-    // else {
-  //   alert('Please pick a product');
-  // }
+  }
   if (voteCounter === 25){
     renderResults();
-    // productSelectorElem.removeEventListener('click', productClicked);
-    leftImgElem.removeEventListener('click', productClicked);
-    middleImgElem.removeEventListener('click', productClicked);
-    rightImgElem.removeEventListener('click', productClicked);
-
+    addProductChart();
+    productSelectorElem.removeEventListener('click', productClicked);
   }
 }
-// ----------------global functions above -----------------
-// productSelectorElem.addEventListener('click', productClicked);
-leftImgElem.addEventListener('click', productClicked);
-middleImgElem.addEventListener('click', productClicked);
-rightImgElem.addEventListener('click', productClicked);
+productSelectorElem.addEventListener('click', productClicked);
 // --------------------event listeners above-----------------
 new Products('bag', './img/bag.jpg');
 new Products('banana', './img/banana.jpg');
