@@ -148,7 +148,7 @@ function productClicked(event) {
     }
     pickThreeProducts();
   }
-  if (voteCounter === 15){
+  if (voteCounter === 25){
     renderResults();
     addProductChart();
     productSelectorElem.removeEventListener('click', productClicked);
