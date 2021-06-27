@@ -8,37 +8,41 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <div id="headerContainer">
     <header>
-
+      <H1>Bus-mall Catalog</H1>
     </header>
+  </div>
     <main>
-      <section>
+      <section id="listOfItems">
         <h2>Products Selected</h2>
+        <button onclick="show_hide()" id="showResultsButton">Click to show or hide results</button>
         <ul id="product-clicks">
-          <li>bag : 0</li>
-          <li>bag : 0</li>
-          <li>banana</li>
-          <li>bathroom : 0</li>
-          <li>boots : 0</li>
-          <li>breakfast : 0</li>
-          <li>bubblegum : 0</li>
-          <li>chair : 0</li>
-          <li>cthulhu : 0</li>
-          <li>dog duck : 0</li>
-          <li>dragon : 0</li>
-          <li>pen : 0</li>
-          <li>pet sweep : 0</li>
-          <li>scissors : 0</li>
-          <li>shark : 0</li>
-          <li>sweep : 0</li>
-          <li>tauntaun : 0</li>
-          <li>unicorn : 0</li>
-          <li>water can : 0</li>
-          <li>wine glasss : 0</li>
+          <li>Bag : 0</li>
+          <li>Banana</li>
+          <li>Bathroom : 0</li>
+          <li>Boots : 0</li>
+          <li>Breakfeast : 0</li>
+          <li>Bubblegum : 0</li>
+          <li>Chair : 0</li>
+          <li>Cthulhu : 0</li>
+          <li>Dog duck : 0</li>
+          <li>Dragon : 0</li>
+          <li>Pen : 0</li>
+          <li>Pet sweep : 0</li>
+          <li>Scissors : 0</li>
+          <li>Shark : 0</li>
+          <li>Sweep : 0</li>
+          <li>Tauntaun : 0</li>
+          <li>Unicorn : 0</li>
+          <li>Water can : 0</li>
+          <li>Wine glasss : 0</li>
         </ul>
       </section>
+      <div id="pleaseContainer">
+      <h1 id="please">Please select which product you prefer</h1>
+    </div>
       <section id="all_products">
-        <h1>Please select which product you prefer</h1>
 
 
         <div id="left_product">
@@ -59,14 +63,10 @@
 
       </section>
       <div id="chart">
-      <canvas id="productChart" width="800px" height="800px"></canvas>
+      <canvas id="productChart" width="600px" height="500px"></canvas>
       </div>
-      <aside>
-
-      </aside>
     </main>
     <footer>
-      <p>Footer for page</p>
     </footer>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.1.1/dist/chart.min.js"></script>
     <script src="app.js"></script>

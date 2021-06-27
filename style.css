@@ -1,4 +1,100 @@
+*{
+  box-sizing: border-box;
+}
+body {
+  background-color: rgba(61, 159, 216, 0.788);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 #chart {
-  width: 1100px;
-  height: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 120px;
+}
+canvas {
+  
+  max-width: 700px;
+  max-height: 700px;
+}
+header {
+border-style: outset;
+background-color: gray;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100%;
+}
+header h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
+  
+}
+
+/* ---------------------------------- */
+#all_products {
+  width: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+/* #all_products div{
+  background-color: rgba(74, 216, 61, 0.788);
+} */
+
+#all_products div:nth-child(2) {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+img {
+  background-color: rgb(196, 210, 221);
+  border-style: outset;
+  border-width: 10px;
+  max-height: 260px;
+  max-width: 100%;
+  padding: 10px;
+  /* margin-right: auto;
+  margin-left: auto; */
+}
+/* ---------------------------- */
+#listOfItems {
+  margin-top: 60px;
+  float: left;
+  width: 15%;
+  height: 440px;
+}
+ul {
+  list-style: none;
+  display: none;
+  /* display: inline; */
+  text-transform: capitalize;
+}
+ul li {
+  line-height: 1.5em;
+  font-weight: 400;
+}
+button {
+  background-color: gray;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+h2 {
+  text-align: center;
+  text-transform: capitalize;
+  height: 45px;
+
+}
+#pleaseContainer {
+  width: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#please {
+margin-top: 65px;
+margin-bottom: 45px;
+  /* width: 74%;
+  padding-right: 34%;
+  float: right; */
 }
